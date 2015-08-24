@@ -34,3 +34,9 @@ C:\Users\DorinS\Desktop\planning\pddl\bin\Debug\PDDL.pdb
 C:\Users\DorinS\Desktop\planning\pddl\obj\x86\Debug\PDDL Regression.csprojResolveAssemblyReference.cache
 C:\Users\DorinS\Desktop\planning\pddl\obj\x86\Debug\PDDL.exe
 C:\Users\DorinS\Desktop\planning\pddl\obj\x86\Debug\PDDL.pdb
+C:\Users\dshemary\Desktop\Planning--Network-Attack-master\pddl\bin\Debug\PDDL.exe.config
+C:\Users\dshemary\Desktop\Planning--Network-Attack-master\pddl\bin\Debug\PDDL.exe
+C:\Users\dshemary\Desktop\Planning--Network-Attack-master\pddl\bin\Debug\PDDL.pdb
+C:\Users\dshemary\Desktop\Planning--Network-Attack-master\pddl\obj\x86\Debug\PDDL Regression.csprojResolveAssemblyReference.cache
+C:\Users\dshemary\Desktop\Planning--Network-Attack-master\pddl\obj\x86\Debug\PDDL.exe
+C:\Users\dshemary\Desktop\Planning--Network-Attack-master\pddl\obj\x86\Debug\PDDL.pdb

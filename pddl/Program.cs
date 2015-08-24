@@ -10,7 +10,7 @@ namespace PDDL
 {
     class Program
     {
-        public static string BASE_PATH = @"C:\Users\DorinS\Desktop\planning\";
+        public static string BASE_PATH = @"C:\Users\dshemary\Desktop\planning\";
         public static string Path;
         public static string ResultsFile = "Results.txt";
 #if DEBUG

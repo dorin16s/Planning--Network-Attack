@@ -26,7 +26,7 @@ namespace PDDL
             if (!Directory.Exists(sPath))
                 Directory.CreateDirectory(sPath);
             StreamWriter sw = new StreamWriter(sPath + @"\d.pddl");
-            //sw.Write(GenerateDomain());
+       
             GenerateDomain(sw);
             sw.Close();
         }
@@ -35,7 +35,7 @@ namespace PDDL
         {
             sw.Write("(define \n");
             sw.Write("(domain " + Name + ")\n");
-            sw.Write("(:types Machines)\n"); // not sure
+            sw.Write("(:types Machine Exploit OS)\n"); // not sure
             sw.Write(GenerateConstants() + "\n");
             sw.Write(GeneratePredicates());
             GenerateActions(sw);
@@ -45,32 +45,44 @@ namespace PDDL
         private void GenerateActions(StreamWriter sw)
         {
             sw.WriteLine(GenerateInfectAction());
+            sw.WriteLine(GeneratePing());
 
+        }
+
+        private string GeneratePing()
+        {
+            string sAction = "";
+
+            sAction += "(:action ping\n";
+            sAction += "\t:parameters (?x - Machine ?y - Machine ?s - OS)\n";
+            sAction += "\t:precondition (connect ?x ?y) \n";
+            sAction += "\t:observe (MachineOS ?y ?s)\n";
+            sAction += ")\n";
+            return sAction;
         }
 
         private string GenerateInfectAction()
         {
              string sAction ="";
-             for (int i = 0; i <= OS; i++)
-             {
-                 sAction += "(:action InfectOS"+i+"\n";
-                 sAction += "\t:parameters (?x - Machine ?y - Machine ?z - Exploit)\n";
-                 sAction += "\t:precondition (connect ?x ?y) (infected ?x) (not(infected ?y)) (ExploitOS ?z OS" + i + ") (MachineOS ?y OS" + i + ") \n";
+           
+                 sAction += "(:action infectOS\n";
+                 sAction += "\t:parameters (?x - Machine ?y - Machine ?z - Exploit ?s - OS)\n";
+                 sAction += "\t:precondition (connect ?x ?y) (infected ?x) (not(infected ?y)) (ExploitOS ?z ?s) (MachineOS ?y ?s) \n";
                  sAction += "\t:effect (infected ?y)\n";
             
                  sAction += ")\n";
-             }
+           
             return sAction;
         }
 
         private string GeneratePredicates()
         {
             string sPredicates = "(:predicates\n";
-            sPredicates += "\t(MachineOS ?x - Machine ?y - OperationSystem)\n";
-            sPredicates += "\t(Internal ?x - Machine)\n";
-            sPredicates += "\t(Connect ?x - Machine ?y - Machine)\n";
-            sPredicates += "\t(Infected ?x - Machine)\n";
-            sPredicates += "\t(ExploitOS ?x - Exploit ?y - OperationSystem)\n";
+            sPredicates += "\t(MachineOS ?x - Machine ?y - OS)\n";
+            sPredicates += "\t(internal ?x - Machine)\n";
+            sPredicates += "\t(connect ?x - Machine ?y - Machine)\n";
+            sPredicates += "\t(infected ?x - Machine)\n";
+            sPredicates += "\t(ExploitOS ?x - Exploit ?y - OS)\n";
             sPredicates += ")\n";
             return sPredicates;
         }
@@ -83,7 +95,7 @@ namespace PDDL
             sConstants += " - Machine\n";
             for (int i = 1; i <= OS; i++)
                 sConstants += " OS-" + i;
-            sConstants += " - OperationSystem\n";
+            sConstants += " - OS\n";
             for (int i =1; i <= Exploits; i++)
                 sConstants += " E-" + i;
             sConstants += " - Exploit\n";
@@ -107,10 +119,10 @@ namespace PDDL
 
         private string GetGoalState()
         {
-            string sGoal = "(:goal (and\n";
+            string sGoal = "(:goal (or";
             for (int iX = 1; iX <= Machines; iX++)
             {
-                sGoal += "\t(or (Infected " + inter(iX) + ") (and (Internal " + inter(iX) + ")";
+                sGoal += "\t (and (infected " + inter(iX) + ") (internal " + inter(iX) + "))";
             }
             sGoal += "))\n";
             return sGoal;
@@ -136,13 +148,24 @@ namespace PDDL
             string sExploits = "";//"(and \n";
             //for each Exploit one OS
             //create link for all computers to all computers (Change it Later to random?)
-            for (int iX = 1; iX <= Exploits; iX++)
+           
                 for (int iy = 1; iy <= OS; iy++)
                 {
-                    sExploits += " (ExploitOS " + GetExploitOs(iX, iy) + ")\n";
+                    sExploits += " (ExploitOS " + GetExploitOs(1, iy) + ")\n";
 
 
                 }
+                Random random = new Random();
+    
+                for (int iX = 2; iX <= Exploits; iX++)
+                    for (int iy = 1; iy <= OS; iy++)
+                    {
+                        int randomNumber = random.Next(0, 100);
+                        if (randomNumber % 4 == 0) //internal
+                             sExploits += " (ExploitOS " + GetExploitOs(iX, iy) + ")\n";
+
+
+                    }
             return sExploits;
         }
 
@@ -152,7 +175,7 @@ namespace PDDL
             //for each computer one OS
             //create link for all computers to all computers (Change it Later to random?)
      
-                        sInfected += " (Infected " + inter(1) + ")\n";
+                        sInfected += " (infected " + inter(1) + ")\n";
 
 
                 
@@ -164,13 +187,23 @@ namespace PDDL
             string sNetwork = "";//"(and \n";
             //for each computer one OS
             //create link for all computers to all computers (Change it Later to random?)
+            //first-basic path
+            sNetwork += " (connect " + connect(1, 2) + ")\n";
+            sNetwork += " (connect " + connect(2, Machines) + ")\n";
+
+            Random random = new Random();
             for (int iX = 1; iX <= Machines; iX++)
                 for (int iy = 1; iy <= Machines; iy++)
                 {
-                    if (iX != iy)
-                        sNetwork += " (connect " + connect(iX, iy) + ")\n";
+                    if ((iX < iy) & !(iX == 1 & iy == 2) & !(iX== 2 & iy == Machines))
+                    {
+                       
+                        int randomNumber = random.Next(0, 100);
+                        if (randomNumber %2==0) //internal
+                            if (iX != iy)
+                                sNetwork += " (connect " + connect(iX, iy) + ")\n";
 
-
+                    }
                 }
             return sNetwork;
         }
@@ -188,7 +221,7 @@ namespace PDDL
                     sNetwork += " (MachineOS " + GetMachineOs(iX, iY) + ")";
 
                 }
-                sNetwork = sNetwork + "\n";
+                sNetwork = sNetwork + ")\n";
             }
 
             //sWaterPoisitions += ")\n";
@@ -198,21 +231,20 @@ namespace PDDL
         private string GetInternal()
         {
             string sInternal = "";//"(and \n";
-
+            Random random = new Random();
             //for each computer one OS
             //create link for all computers to all computers (Change it Later to random?)
             for (int iX = 2; iX < Machines - 1; iX++)
             {
-                Random random = new Random();
                 int randomNumber = random.Next(0, 100);
-                if (randomNumber < 50) //internal
+                if (randomNumber %2 ==0) //internal
 
-                    sInternal += " (Internal " + inter(iX) + ")\n";
+                    sInternal += " (internal " + inter(iX) + ")\n";
 
 
             }
             int last = Machines; //set at 1 internal 
-            sInternal += " (Internal " + inter(last) + ")";
+            sInternal += " (internal " + inter(last) + ")";
             return sInternal;
         }
 
