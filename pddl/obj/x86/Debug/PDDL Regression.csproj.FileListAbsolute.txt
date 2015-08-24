@@ -1,0 +1,36 @@
+D:\Research\projects\PDDL\PDDL Regression\PDDL\bin\Debug\PDDL.exe
+D:\Research\projects\PDDL\PDDL Regression\PDDL\bin\Debug\PDDL.pdb
+D:\Research\projects\PDDL\PDDL Regression\PDDL\obj\x86\Debug\PDDL.exe
+D:\Research\projects\PDDL\PDDL Regression\PDDL\obj\x86\Debug\PDDL.pdb
+D:\Research\projects\PDDL\PDDL Regression\PDDL\bin\Debug\PDDL.exe.config
+D:\Research\projects\PDDL\PDDL Regression\PDDL\obj\x86\Debug\PDDL Regression.csprojResolveAssemblyReference.cache
+D:\PROGRAMS\SDR\PDDL Regression\PDDL\obj\x86\Debug\PDDL.exe
+D:\PROGRAMS\SDR\PDDL Regression\PDDL\bin\Debug\PDDL.exe.config
+D:\PROGRAMS\SDR\PDDL Regression\PDDL\bin\Debug\PDDL.exe
+D:\PROGRAMS\SDR\PDDL Regression\PDDL\bin\Debug\PDDL.pdb
+D:\PROGRAMS\SDR\PDDL Regression\PDDL\obj\x86\Debug\PDDL.pdb
+D:\PROGRAMS\SDR\PDDL Regression\PDDL\obj\x86\Debug\PDDL Regression.csprojResolveAssemblyReference.cache
+D:\Research\projects\PDDL\PDDL Regression.offline\PDDL\bin\Debug\PDDL.exe.config
+D:\Research\projects\PDDL\PDDL Regression.offline\PDDL\bin\Debug\PDDL.exe
+D:\Research\projects\PDDL\PDDL Regression.offline\PDDL\bin\Debug\PDDL.pdb
+D:\Research\projects\PDDL\PDDL Regression.offline\PDDL\obj\x86\Debug\PDDL.exe
+D:\Research\projects\PDDL\PDDL Regression.offline\PDDL\obj\x86\Debug\PDDL.pdb
+D:\Research\projects\PDDL\PDDL Regression.offline\PDDL\obj\x86\Debug\PDDL Regression.csprojResolveAssemblyReference.cache
+D:\Dropbox-users\shanigu\Dropbox\Dropbox\SDR\PDDL Regression.offline.17.11.2014.localize\PDDL Regression.offline\PDDL\bin\Debug\PDDL.exe.config
+D:\Dropbox-users\shanigu\Dropbox\Dropbox\SDR\PDDL Regression.offline.17.11.2014.localize\PDDL Regression.offline\PDDL\bin\Debug\PDDL.exe
+D:\Dropbox-users\shanigu\Dropbox\Dropbox\SDR\PDDL Regression.offline.17.11.2014.localize\PDDL Regression.offline\PDDL\bin\Debug\PDDL.pdb
+D:\Dropbox-users\shanigu\Dropbox\Dropbox\SDR\PDDL Regression.offline.17.11.2014.localize\PDDL Regression.offline\PDDL\obj\x86\Debug\PDDL Regression.csprojResolveAssemblyReference.cache
+D:\Dropbox-users\shanigu\Dropbox\Dropbox\SDR\PDDL Regression.offline.17.11.2014.localize\PDDL Regression.offline\PDDL\obj\x86\Debug\PDDL.exe
+D:\Dropbox-users\shanigu\Dropbox\Dropbox\SDR\PDDL Regression.offline.17.11.2014.localize\PDDL Regression.offline\PDDL\obj\x86\Debug\PDDL.pdb
+C:\Users\dshemary\Desktop\planning\pddl\bin\Debug\PDDL.exe.config
+C:\Users\dshemary\Desktop\planning\pddl\bin\Debug\PDDL.exe
+C:\Users\dshemary\Desktop\planning\pddl\bin\Debug\PDDL.pdb
+C:\Users\dshemary\Desktop\planning\pddl\obj\x86\Debug\PDDL Regression.csprojResolveAssemblyReference.cache
+C:\Users\dshemary\Desktop\planning\pddl\obj\x86\Debug\PDDL.exe
+C:\Users\dshemary\Desktop\planning\pddl\obj\x86\Debug\PDDL.pdb
+C:\Users\DorinS\Desktop\planning\pddl\bin\Debug\PDDL.exe.config
+C:\Users\DorinS\Desktop\planning\pddl\bin\Debug\PDDL.exe
+C:\Users\DorinS\Desktop\planning\pddl\bin\Debug\PDDL.pdb
+C:\Users\DorinS\Desktop\planning\pddl\obj\x86\Debug\PDDL Regression.csprojResolveAssemblyReference.cache
+C:\Users\DorinS\Desktop\planning\pddl\obj\x86\Debug\PDDL.exe
+C:\Users\DorinS\Desktop\planning\pddl\obj\x86\Debug\PDDL.pdb
